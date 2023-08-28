@@ -6,11 +6,12 @@ local chr = plr.Character
 local hum = chr.Humanoid
 local hrp = chr.HumanoidRootPart
 
-
-
+--anti afk
+repeat wait() until game:IsLoaded() game:GetService(“Players”).LocalPlayer.Idled:connect(function() game:GetService(“VirtualUser”):ClickButton2(Vector2.new()) end)
 
 
 -- farming options
+while true do
 if getgenv().Heaven_Stands["Farming Options"]["Box Farm"] then
     for _, v in pairs(workspace.Item_Spawnner.Box:GetChildren()) do
       if v:IsA("MeshPart") then
@@ -18,6 +19,7 @@ if getgenv().Heaven_Stands["Farming Options"]["Box Farm"] then
           if v.Base then
             hrp.CFrame = v.Base.CFrame wait(.25)
             fireclickdetector(v.Base.ClickDetector);
+          end
           end
         end
       end
